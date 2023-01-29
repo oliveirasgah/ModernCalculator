@@ -1,0 +1,89 @@
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    align-items: center;
+    background: linear-gradient(135deg, #6E71F5, #6EDB8B, #E8C868);
+    display: flex;
+    font-family: 'NEON CLUB MUSIC', sans-serif;
+    font-display: swap;
+    height: inherit;
+    justify-content: center;
+    font-weight: bold;
+}
+
+#container {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    background: rgba(255, 255, 255, 0.34);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    flex-basis: 400px;
+    height: 540px;
+    padding: 20px 30px;
+}
+
+#screen {
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(133, 147, 124, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    overflow: auto;
+    text-align: right;
+    padding: 5px;
+    font-size: 55px;
+}
+
+.calc-buttons-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0;
+}
+
+.calc-button {
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    font-family: inherit;
+    flex-basis: 20%;
+    font-size: 20px;
+    height: 64px;
+}
+
+.calc-button:last-child {
+    background: rgba(219, 58, 55, 0.75);
+    color: white;
+}
+
+.calc-button:hover {
+    background: inherit;
+}
+
+.calc-button:last-child:hover {
+    color: #232323;
+}
+
+.calc-button:active {
+    background-color: #ffef78;
+}
+
+.horizontal-double {
+    flex-basis: 47%;
+}
