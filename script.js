@@ -106,7 +106,10 @@ function flushOperation(floatBuffer) {
 
 function init() {
     document.querySelector('.calc-keyboard').addEventListener('click', function (event) {
-        buttonClick(event.target.innerText);
+        const className = event.target.className;
+        
+        if(className.includes('calc-button') && !className.includes('calc-buttons'))
+            buttonClick(event.target.innerText);
     });
 }
 
