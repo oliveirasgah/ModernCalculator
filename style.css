@@ -44,7 +44,7 @@ body {
     overflow: auto;
     text-align: right;
     padding: 5px;
-    font-size: 55px;
+    font-size: 45px;
 }
 
 .calc-buttons-row {
@@ -64,7 +64,7 @@ body {
     font-family: inherit;
     flex-basis: 20%;
     font-size: 20px;
-    height: 68px;
+    height: 70px;
 }
 
 .calc-button:last-child {
