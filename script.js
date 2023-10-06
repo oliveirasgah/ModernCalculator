@@ -6,7 +6,18 @@ let operations = {
     '×': function (floatBuffer) { runningTotal *= floatBuffer; },
     '−': function (floatBuffer) { runningTotal -= floatBuffer; },
     '+': function (floatBuffer) { runningTotal += floatBuffer; },
-    '÷': function (floatBuffer) { runningTotal /= floatBuffer; },
+    '÷': function (floatBuffer) {
+        let precision;
+        let result = runningTotal / floatBuffer;
+
+        for (precision = 6; precision > 0; precision--) {
+            result = roundFloat(result, precision);
+            if (result.toString().length <= 8)
+                break;
+        }
+
+        runningTotal = (precision > 0) ? result : parseInt(result);
+    }
 }
 
 const screen = document.querySelector('#screen');
@@ -107,6 +118,12 @@ function handleMath(symbol) {
 
 function flushOperation(floatBuffer) {
     operations[previousOperator](floatBuffer);
+}
+
+function roundFloat(number, precision) {
+    let precisionUnits = 10 ** precision;
+    return Math.round((number + Number.EPSILON) *
+            precisionUnits) / precisionUnits;
 }
 
 function init() {
