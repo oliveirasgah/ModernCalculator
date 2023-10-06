@@ -1,6 +1,7 @@
 let runningTotal = 0;
 let buffer = "0";
 let previousOperator;
+let clearScreen = true;
 let operations = {
     '×': function (floatBuffer) { runningTotal *= floatBuffer; },
     '−': function (floatBuffer) { runningTotal -= floatBuffer; },
@@ -17,7 +18,7 @@ function buttonClick(value) {
         handleNumber(value);
     }
 
-    if(buffer.toString().length > 8)
+    if (buffer.toString().length > 8)
         buffer = 'Error';
 
     screen.innerText = buffer;
@@ -28,6 +29,7 @@ function handleSymbol(symbol) {
         case 'C':
             runningTotal = 0;
             buffer = '0';
+            clearScreen = true;
             break;
         case '←':
             if(buffer == 'Error')
@@ -67,6 +69,7 @@ function handleSymbol(symbol) {
                 return;
 
             handleMath(symbol);
+
             break;
     }
 }
@@ -75,8 +78,9 @@ function handleNumber(numberString) {
     if(buffer == 'Error')
         return;
 
-    if (buffer == '0') {
+    if (buffer == '0' || clearScreen) {
         buffer = numberString;
+        clearScreen = false;
     } else {
         if (buffer.length < 8)
             buffer += numberString;
@@ -97,7 +101,8 @@ function handleMath(symbol) {
     }
 
     previousOperator = symbol;
-    buffer = '0';
+    clearScreen = true;
+    buffer = runningTotal.toString();
 }
 
 function flushOperation(floatBuffer) {
